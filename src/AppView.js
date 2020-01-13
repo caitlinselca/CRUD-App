@@ -1,7 +1,7 @@
 import React from "react";
 
 const AppView = (props) => {
-    const { counter, incrementCounter, decrementCounter, handleChange, amount, students, removeStudent, addStudent } = props;
+    const { students, removeStudent, addStudent } = props;
 
     const studentToAdd = {
         "id": 2,
@@ -19,7 +19,7 @@ const AppView = (props) => {
     <div className="App">
         <header className="App-header">
             
-            {students.map(student => <div>{student.firstName} ></div>)}
+            {students.map(student => <div>{student.firstName} </div>)}
         </header>
     </div>
     )
