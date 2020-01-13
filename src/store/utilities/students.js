@@ -2,12 +2,20 @@
 const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
+const GET_STUDENT = "GET_STUDENT";
 
 // ACTION CREATOR;
 const fetchStudents = (students) => {
     return {
         type: FETCH_STUDENTS,
         payload: students
+    }
+}
+
+const getStudent = (id) => {
+    return {
+        type: GET_STUDENT,
+        payload: id
     }
 }
 
@@ -19,6 +27,9 @@ const removeStudent = (id) => {
 }
 
 const addStudent = (student) => {
+
+    student.id = parseInt(student.id);
+
     return {
         type: ADD_STUDENT,
         payload: student
@@ -27,7 +38,27 @@ const addStudent = (student) => {
 
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
-    const arrayOfStudentsFromAPI = [
+
+    dispatch(fetchStudents(initialState))
+}
+
+export const getStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = getStudent(id); 
+    dispatch(resolvedActionObject);
+}
+
+export const removeStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = removeStudent(id); 
+    dispatch(resolvedActionObject);
+}
+
+export const addStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = addStudent(student); 
+    dispatch(resolvedActionObject);
+}
+
+
+let initialState= [
         {
         "id": 1,
         "firstName": "Caitlin",
@@ -51,21 +82,8 @@ export const fetchStudentsThunk = () => (dispatch) => {
         }
     ]
 
-    dispatch(fetchStudents(arrayOfStudentsFromAPI))
-}
-
-export const removeStudentThunk = (id) => (dispatch) => {
-    let resolvedActionObject = removeStudent(id); 
-    dispatch(resolvedActionObject);
-}
-
-export const addStudentThunk = (student) => (dispatch) => {
-    let resolvedActionObject = addStudent(student); 
-    dispatch(resolvedActionObject);
-}
-
 // REDUCER FUNCTION;
-export default (state = [], action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;
@@ -73,6 +91,8 @@ export default (state = [], action) => {
             return state.filter(student => student.id !== action.payload);
         case ADD_STUDENT:
             return [...state, action.payload]
+        case GET_STUDENT:
+            return state.filter(student => student.id === parseInt(action.payload));
         default:
             return state;
     }
