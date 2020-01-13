@@ -7,6 +7,7 @@ import AppView from "./AppView";
 // Additional Redux store imports;
 import { connect } from "react-redux";
 import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
+import { fetchCampusesThunk, removeCampusThunk, addCampusThunk } from "./store/utilities/campuses";
 
 class AppContainer extends Component {
   constructor() {
@@ -18,6 +19,7 @@ class AppContainer extends Component {
 
   componentDidMount() {
     this.props.fetchAllStudents();
+    this.props.fetchAllCampuses();
   }
 
   handleChange = (event) => {
@@ -32,9 +34,17 @@ class AppContainer extends Component {
     this.props.addStudent(student);
   }
 
+  removeCampus = (id) => {
+    this.props.removeCampus(id);
+  }
+
+  addCampus = (campus) => {
+    this.props.addCampus(campus);
+  }
+
   render() {
     return (
-      <AppView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} />
+      <AppView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} campuses={this.props.campuses} removeCampus={this.removeCampus} addCampus={this.addCampus} />
     )
   }
 }
@@ -44,7 +54,8 @@ class AppContainer extends Component {
 // The values of these keys reflect the value of the piece of state in your Redux store;
 const mapState = (state) => {
   return {
-    students: state.students
+    students: state.students,
+    campuses: state.campuses
   }
 }
 
@@ -55,7 +66,10 @@ const mapDispatch = (dispatch) => {
   return {
     fetchAllStudents: () => dispatch(fetchStudentsThunk()),
     removeStudent: (id) => dispatch(removeStudentThunk(id)),
-    addStudent: (student) => dispatch(addStudentThunk(student))
+    addStudent: (student) => dispatch(addStudentThunk(student)),
+    fetchAllCampuses: () => dispatch(fetchCampusesThunk()),
+    removeStudent: (id) => dispatch(removeCampusThunk(id)),
+    addStudent: (campus) => dispatch(addCampusThunk(campus))
   }
 }
 

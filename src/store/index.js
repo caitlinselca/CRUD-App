@@ -18,6 +18,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 // Reducer Functions;
 import students from "./utilities/students";
+import campuses from "./utilities/campuses";
 
 // Construct our Redux store using all of the imports we just conducted;
 // rootReducer: this is the sole reducer function that you will pass to your Redux store when you create the Redux store;
@@ -28,7 +29,7 @@ import students from "./utilities/students";
 // store: first argument is your reducer(s) (keep in mind you can just have one reducer without the combineReducers involved****) and your second argument passed in is your middleware that operates in between actions being dispatched and those actions arriving at the reducer function;
 // ****: with combineReducers, you are allowed to have split up reducer functions that manage a certain part of state, and this function combineReducers will go through each key in the combinedReducerObject and invoke each reducer function aka value until all reducer functions are called --- however, if you do not use combineReducers you can simply pass in a single reducer function --- so you can pass in an object of reducer functions with combineReducers, or you can pass in one sole reducer function without combineReducers (make sure you pass in an object to combineReducers);
 // export default store: you can only have one default export per file (unless you alias multiple defaults);
-const rootReducer = combineReducers({students});
+const rootReducer = combineReducers({students, campuses});
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
 const store = createStore(rootReducer, middleware);
