@@ -23,7 +23,6 @@ export default function AllStudentsView(props) {
 
     return (
         <div>
-
             <div className="App">
                 <button
                     onClick={() => addStudent(studentToAdd)}
@@ -47,7 +46,6 @@ export default function AllStudentsView(props) {
                     ></CardView>
                 );
             })}
-
         </div>
     )
 }

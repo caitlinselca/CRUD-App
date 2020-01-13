@@ -12,7 +12,7 @@ import store from "./store"; // if the file you are importing is the `index.js` 
 ReactDOM.render(
     <Provider store={store}>
         <App />
-    </Provider >,
+    </Provider>,
     document.getElementById('root')
 );
 
