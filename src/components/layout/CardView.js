@@ -9,6 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import { useHistory } from "react-router-dom";
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,6 +32,7 @@ const CardView = (props) => {
     const classes = useStyles();
 
     const {id, variant, title} = props;
+    let history = useHistory();
 
     return (
     
@@ -46,6 +48,7 @@ const CardView = (props) => {
                     <IconButton
                         aria-label="more"
                         aria-haspopup="true"
+                        onClick={ () => history.push(`/${variant}/${id}`)}
                     >
                         <OpenInNewIcon />
      

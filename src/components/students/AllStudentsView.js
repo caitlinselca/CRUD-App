@@ -1,8 +1,9 @@
-import React from "react";
-import CardView from "./components/layout/CardView";
+import React from 'react'
+import CardView from "../layout/CardView";
 
-const AppView = (props) => {
-    const { students, removeStudent, addStudent, campuses, removeCampus, addCampus } = props;
+export default function AllStudentsView(props) {
+
+    const { students, removeStudent, addStudent} = props;
 
     const studentToAdd = {
         "id": 4,
@@ -20,20 +21,14 @@ const AppView = (props) => {
         "gpa": 3.7
     }
 
-    const campusToAdd = {
-        "id": 1,
-        "name": "Hunter College" 
-    }
-
     return (
-    <div>
-        <header>
+        <div>
+
             <div className="App">
                 <button
                     onClick={() => addStudent(studentToAdd)}
                 > 
-                    Add Student 
-
+                Add Student 
                 </button>
 
                 <button
@@ -41,17 +36,18 @@ const AppView = (props) => {
                 > 
                 Remove Student 
                 </button>
-
             </div>
 
             {students.map(student => {
                 return (
-                    <CardView title={student.firstName}></CardView>
+                    <CardView 
+                        title={`${student.firstName} ${student.lastName}`}
+                        id={student.id}
+                        variant="student"
+                    ></CardView>
                 );
             })}
-        </header>
-    </div>
+
+        </div>
     )
 }
-
-export default AppView;

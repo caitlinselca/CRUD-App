@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 
-// Import view;
-import AppView from "../../AppView";
-
 // Additional Redux store imports;
 import { connect } from "react-redux";
 import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "../../store/utilities/students";
+import AllStudentsView from './AllStudentsView';
 
 class AppContainer extends Component {
   constructor() {
@@ -33,7 +31,7 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <AppView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} campuses={this.props.campuses} removeCampus={this.removeCampus} addCampus={this.addCampus} />
+      <AllStudentsView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} campuses={this.props.campuses} removeCampus={this.removeCampus} addCampus={this.addCampus} />
     )
   }
 }
