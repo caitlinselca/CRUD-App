@@ -3,6 +3,7 @@ const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
 const GET_STUDENT = "GET_STUDENT";
+const EDIT_STUDENT = "EDIT_STUDENT"
 
 // ACTION CREATOR;
 const fetchStudents = (students) => {
@@ -36,6 +37,16 @@ const addStudent = (student) => {
     }
 }
 
+const editStudent = (student) => {
+
+    student.id = parseInt(student.id);
+
+    return {
+        type: EDIT_STUDENT,
+        payload: student
+    }
+}
+
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
 
@@ -44,6 +55,11 @@ export const fetchStudentsThunk = () => (dispatch) => {
 
 export const getStudentThunk = (id) => (dispatch) => {
     let resolvedActionObject = getStudent(id); 
+    dispatch(resolvedActionObject);
+}
+
+export const editStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = editStudent(student); 
     dispatch(resolvedActionObject);
 }
 
@@ -93,6 +109,14 @@ export default (state = initialState, action) => {
             return [...state, action.payload]
         case GET_STUDENT:
             return state.filter(student => student.id === parseInt(action.payload));
+        case EDIT_STUDENT:
+            return state.map(student => {
+                if(student.id === action.payload.id) {
+                    return action.payload
+                }
+
+                return student;
+            });
         default:
             return state;
     }

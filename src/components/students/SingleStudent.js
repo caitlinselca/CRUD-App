@@ -22,7 +22,6 @@ class SingleStudent extends Component {
 
             if(this.props.students[i].id === parseInt(id)) {
                 myStudent = this.props.students[i];
-                console.log("PLEASE");
             }
         }
 

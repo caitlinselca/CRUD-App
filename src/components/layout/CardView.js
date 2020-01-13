@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
 import DeleteIcon from '@material-ui/icons/Delete';
+import { EditStudentForm } from '../students';
 
 
 const useStyles = makeStyles(theme => ({
@@ -77,14 +78,18 @@ const CardView = (props) => {
             </CardContent>
 
             <CardActions disableSpacing>
-            
+
+                <EditStudentForm
+                    id={id}
+                    editStudent={props.editStudent}
+                ></EditStudentForm>
+
                 <IconButton 
                     aria-label="add to favorites"
                     onClick={ () => {removeStudent(id)}}
                 >
                     <DeleteIcon></DeleteIcon>
                 </IconButton>
-
             
             </CardActions>
         </Card>

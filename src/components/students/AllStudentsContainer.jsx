@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // Additional Redux store imports;
 import { connect } from "react-redux";
-import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "../../store/utilities/students";
+import { fetchStudentsThunk, removeStudentThunk, addStudentThunk, editStudentThunk } from "../../store/utilities/students";
 import AllStudentsView from './AllStudentsView';
 
 class AllStudentsContainer extends Component {
@@ -29,12 +29,17 @@ class AllStudentsContainer extends Component {
     this.props.addStudent(student);
   }
 
+  editStudent = (student) => {
+    this.props.editStudent(student);
+  }
+
   render() {
     return (
       <AllStudentsView 
         students={this.props.students} 
         removeStudent={this.removeStudent} 
-        addStudent={this.addStudent}  
+        addStudent={this.addStudent} 
+        editStudent={this.editStudent} 
       />
     )
   }
@@ -58,6 +63,7 @@ const mapDispatch = (dispatch) => {
     fetchAllStudents: () => dispatch(fetchStudentsThunk()),
     removeStudent: (id) => dispatch(removeStudentThunk(id)),
     addStudent: (student) => dispatch(addStudentThunk(student)),
+    editStudent: (student) => dispatch(editStudentThunk(student)),
   }
 }
 
