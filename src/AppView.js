@@ -24,14 +24,7 @@ const AppView = (props) => {
              <button
                 className="search-button"
 				onClick={() => alert("You removed a student!")}> Remove Student </button>
-              <button
-                className="search-button"
-				onClick={() => addCampus(campusToAdd)}> Add Campus </button>
-             <button
-                className="search-button"
-				onClick={() => alert("You removed a campus!")}> Remove Campus </button>
             {students.map(student => <div> Student Id: {student.id}, Name: {student.firstName} {student.lastName}, Gpa: {student.gpa}, Email: {student.email} </div>)}
-            {campuses.map(campus => <div> College Campus: {campus.name} </div>)}
         </header>
     </div>
     )
