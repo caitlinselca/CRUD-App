@@ -10,6 +10,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 const CardView = (props) => {
     const classes = useStyles();
 
-    const {id, variant, title} = props;
+    const {id, variant, title, removeStudent} = props;
     let history = useHistory();
 
     return (
@@ -75,7 +76,16 @@ const CardView = (props) => {
 
             </CardContent>
 
-            <CardActions disableSpacing>    
+            <CardActions disableSpacing>
+            
+                <IconButton 
+                    aria-label="add to favorites"
+                    onClick={ () => {removeStudent(id)}}
+                >
+                    <DeleteIcon></DeleteIcon>
+                </IconButton>
+
+            
             </CardActions>
         </Card>
     );
