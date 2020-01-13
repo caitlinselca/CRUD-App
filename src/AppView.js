@@ -1,4 +1,5 @@
 import React from "react";
+import CardView from "./store/components/layout/CardView";
 
 const AppView = (props) => {
     const { students, removeStudent, addStudent, campuses, removeCampus, addCampus } = props;
@@ -16,15 +17,29 @@ const AppView = (props) => {
     }
 
     return (
-    <div className="App">
-        <header className="App-header">
-            <button
-                className="search-button"
-				onClick={() => addStudent(studentToAdd)}> Add Student </button>
-             <button
-                className="search-button"
-				onClick={() => alert("You removed a student!")}> Remove Student </button>
-            {students.map(student => <div> Student Id: {student.id}, Name: {student.firstName} {student.lastName}, Gpa: {student.gpa}, Email: {student.email} </div>)}
+    <div>
+        <header>
+            <div className="App">
+                <button
+                    onClick={() => addStudent(studentToAdd)}
+                > 
+                    Add Student 
+
+                </button>
+
+                <button
+                    onClick={() => alert("You removed a student!")}
+                > 
+                Remove Student 
+                </button>
+
+            </div>
+
+            {students.map(student => {
+                return (
+                    <CardView title={student.firstName}></CardView>
+                );
+            })}
         </header>
     </div>
     )
