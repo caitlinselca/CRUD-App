@@ -27,6 +27,9 @@ const removeStudent = (id) => {
 }
 
 const addStudent = (student) => {
+
+    student.id = parseInt(student.id);
+
     return {
         type: ADD_STUDENT,
         payload: student
@@ -54,29 +57,30 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
-let initialState = [
-    {
-    "id": 1,
-    "firstName": "Caitlin",
-    "lastName": "Selca",
-    "email": "caitlinselca@gmail.com",
-    "gpa": 3.5
-    },
-    {
-    "id": 2,
-    "firstName": "Camryn",
-    "lastName": "Buonamassa",
-    "email": "someemailgoeshere@yahoo.com",
-    "gpa": 3.8
-    },
-    {
-    "id": 3,
-    "firstName": "Naveed",
-    "lastName": "Naqi",
-    "email": "youremail@gmail.com",
-    "gpa": 4.0
-    }
-]
+
+let initialState= [
+        {
+        "id": 1,
+        "firstName": "Caitlin",
+        "lastName": "Selca",
+        "email": "caitlinselca@gmail.com",
+        "gpa": 3.5
+        },
+        {
+        "id": 2,
+        "firstName": "Camryn",
+        "lastName": "Buonamassa",
+        "email": "someemailgoeshere@yahoo.com",
+        "gpa": 3.8
+        },
+        {
+        "id": 3,
+        "firstName": "Naveed",
+        "lastName": "Naqi",
+        "email": "youremail@gmail.com",
+        "gpa": 4.0
+        }
+    ]
 
 // REDUCER FUNCTION;
 export default (state = initialState, action) => {

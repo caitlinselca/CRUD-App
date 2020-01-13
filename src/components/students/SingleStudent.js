@@ -16,9 +16,6 @@ class SingleStudent extends Component {
         const id = this.props.match.params.id;
         this.props.fetchAllStudents();
 
-        console.log(id);
-        console.log(this.props.students)
-
         let myStudent = {};
 
         for(let i = 0; i < this.props.students.length; i++) {
