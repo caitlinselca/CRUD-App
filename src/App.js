@@ -1,7 +1,7 @@
 import React from 'react';
 import "./App.css";
-import AllStudentsContainer from './store/components/students/AllStudentsContainer';
-import HomePage from './store/components/layout/HomePage'
+import AllStudentsContainer from './components/students/AllStudentsContainer';
+import HomePage from './components/layout/HomePage'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {

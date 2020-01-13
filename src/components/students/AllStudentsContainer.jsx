@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
 // Import view;
-import AppView from "../../../AppView";
+import AppView from "../../AppView";
 
 // Additional Redux store imports;
 import { connect } from "react-redux";
-import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "../../../store/utilities/students";
+import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "../../store/utilities/students";
 
 class AppContainer extends Component {
   constructor() {

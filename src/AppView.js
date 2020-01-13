@@ -1,5 +1,5 @@
 import React from "react";
-import CardView from "./store/components/layout/CardView";
+import CardView from "./components/layout/CardView";
 
 const AppView = (props) => {
     const { students, removeStudent, addStudent, campuses, removeCampus, addCampus } = props;
@@ -37,7 +37,7 @@ const AppView = (props) => {
                 </button>
 
                 <button
-                    onClick={() => removeStudent(studentToRemove.id}
+                    onClick={() => removeStudent(studentToRemove.id)}
                 > 
                 Remove Student 
                 </button>
