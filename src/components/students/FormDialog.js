@@ -39,60 +39,61 @@ export default function FormDialog(props) {
   return (
     <div>
       <div className="App">
-      <Button variant="contained" onClick={handleClickOpen}> Add Student </Button>
+      <Button variant="contained" color="primary" onClick={handleClickOpen}> Add Student </Button>
       </div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Student Information</DialogTitle>
         <DialogContent>
-          <TextField
-            required
-            label="ID"
-            variant="filled"
+          <div>
+            <TextField
+              required
+              label="ID"
 
-            id="id"
-            type="number"
-            onChange={handleChange}
-          />
+              id="id"
+              type="number"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <TextField
+              required
+              label="First Name"
 
-          <TextField
-            required
-            label="First Name"
-            variant="filled"
+              id="firstName"
+              type="text"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <TextField
+              required
+              label="Last Name"
 
-            id="firstName"
-            type="text"
-            onChange={handleChange}
-          />
+              id="lastName"
+              type="text"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <TextField
+              required
+              label="Email"
 
-          <TextField
-            required
-            label="Last Name"
-            variant="filled"
+              id="email"
+              type="text"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <TextField
+              required
+              label="GPA"
 
-            id="lastName"
-            type="text"
-            onChange={handleChange}
-          />
-
-          <TextField
-            required
-            label="Email"
-            variant="filled"
-
-            id="email"
-            type="text"
-            onChange={handleChange}
-          />
-
-          <TextField
-            required
-            label="GPA"
-            variant="filled"
-
-            id="gpa"
-            type="text"
-            onChange={handleChange}
-          />
+              id="gpa"
+              type="text"
+              onChange={handleChange}
+            />
+          </div>
         </DialogContent>
         <DialogActions>
           <Button 
