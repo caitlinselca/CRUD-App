@@ -8,9 +8,9 @@ export default function AllStudentsView(props) {
 
     return (
         <div>
+            <p></p>
             <FormDialog addStudent={addStudent}>
             </FormDialog>
-
             {students.map(student => {
                 return (
                     <CardView 

@@ -38,7 +38,9 @@ export default function FormDialog(props) {
 
   return (
     <div>
-      <Button variant="contained"  onClick={handleClickOpen}> Add Student </Button>
+      <div className="App">
+      <Button variant="contained" onClick={handleClickOpen}> Add Student </Button>
+      </div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Student Information</DialogTitle>
         <DialogContent>
@@ -97,6 +99,7 @@ export default function FormDialog(props) {
             variant="contained" 
             color="primary" 
             size="small"
+            align-items="center"
             onClick={handleSubmit}
           >
             Add Student
