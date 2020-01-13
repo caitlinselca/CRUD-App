@@ -4,9 +4,34 @@ import { getStudentThunk, fetchStudentsThunk } from "../../store/utilities/stude
 
 class SingleStudent extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state ={
+            currStudent: {}
+        };
+    }
+
     componentDidMount() {
         const id = this.props.match.params.id;
         this.props.fetchAllStudents();
+
+        console.log(id);
+        console.log(this.props.students)
+
+        let myStudent = {};
+
+        for(let i = 0; i < this.props.students.length; i++) {
+
+            if(this.props.students[i].id === parseInt(id)) {
+                myStudent = this.props.students[i];
+                console.log("PLEASE");
+            }
+        }
+
+        this.setState({
+            currStudent: myStudent
+        });
     }
 
 
@@ -14,6 +39,7 @@ class SingleStudent extends Component {
         return (
             <div>
                 <h1>Single Student</h1>
+                <p> {this.state.currStudent.firstName}</p>
             </div>
         )
     }

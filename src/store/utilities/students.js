@@ -35,31 +35,8 @@ const addStudent = (student) => {
 
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
-    const arrayOfStudentsFromAPI = [
-        {
-        "id": 1,
-        "firstName": "Caitlin",
-        "lastName": "Selca",
-        "email": "caitlinselca@gmail.com",
-        "gpa": 3.5
-        },
-        {
-        "id": 2,
-        "firstName": "Camryn",
-        "lastName": "Buonamassa",
-        "email": "someemailgoeshere@yahoo.com",
-        "gpa": 3.8
-        },
-        {
-        "id": 3,
-        "firstName": "Naveed",
-        "lastName": "Naqi",
-        "email": "youremail@gmail.com",
-        "gpa": 4.0
-        }
-    ]
 
-    dispatch(fetchStudents(arrayOfStudentsFromAPI))
+    dispatch(fetchStudents(initialState))
 }
 
 export const getStudentThunk = (id) => (dispatch) => {
@@ -77,8 +54,32 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
+let initialState = [
+    {
+    "id": 1,
+    "firstName": "Caitlin",
+    "lastName": "Selca",
+    "email": "caitlinselca@gmail.com",
+    "gpa": 3.5
+    },
+    {
+    "id": 2,
+    "firstName": "Camryn",
+    "lastName": "Buonamassa",
+    "email": "someemailgoeshere@yahoo.com",
+    "gpa": 3.8
+    },
+    {
+    "id": 3,
+    "firstName": "Naveed",
+    "lastName": "Naqi",
+    "email": "youremail@gmail.com",
+    "gpa": 4.0
+    }
+]
+
 // REDUCER FUNCTION;
-export default (state = [], action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;
@@ -87,7 +88,7 @@ export default (state = [], action) => {
         case ADD_STUDENT:
             return [...state, action.payload]
         case GET_STUDENT:
-            return state.filter(student => student.id == action.payload);
+            return state.filter(student => student.id === parseInt(action.payload));
         default:
             return state;
     }
