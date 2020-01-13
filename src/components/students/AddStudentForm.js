@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 export default function AddStudentForm(props) {
 
@@ -19,51 +22,61 @@ export default function AddStudentForm(props) {
         setState({ ...state, [event.target.id]: (event.target.value)})
     }
 
-    
-
     return (
-
         <div className="App">
             <form onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    id="id" 
-                    placeholder="ID" 
-                    onChange={handleChange}
-                ></input>
+                <TextField
+                  required
+                  label="ID"
+                  variant="filled"
 
-                <input 
-                    type="text" 
-                    id="firstName" 
-                    placeholder="First Name" 
-                    onChange={handleChange}
-                ></input>
+                  id="id"
+                  type="number"
+                  onChange={handleChange}
+                />
 
-                <input 
-                    type="text" 
-                    id="lastName" 
-                    placeholder="Last Name" 
-                    onChange={handleChange}
-                ></input>
+                <TextField
+                  required
+                  label="First Name"
+                  variant="filled"
 
-                <input 
-                    type="text" 
-                    id="email" 
-                    placeholder="Email" 
-                    onChange={handleChange}
-                ></input>
+                  id="firstName"
+                  type="text"
+                  onChange={handleChange}
+                />
 
-                <input 
-                    type="text" 
-                    id="gpa" 
-                    placeholder="GPA" 
-                    onChange={handleChange}
-                ></input>
+                <TextField
+                  required
+                  label="Last Name"
+                  variant="filled"
 
-                <button> Add Student</button>
+                  id="lastName"
+                  type="text"
+                  onChange={handleChange}
+                />
+
+                <TextField
+                  required
+                  label="Email"
+                  variant="filled"
+
+                  id="email"
+                  type="text"
+                  onChange={handleChange}
+                />
+
+                <TextField
+                  required
+                  label="GPA"
+                  variant="filled"
+
+                  id="gpa"
+                  type="text"
+                  onChange={handleChange}
+                />
+                <Button variant="contained" color="primary" size="small">Add Student</Button>
             </form>
 
         </div>
-
     )
 }
