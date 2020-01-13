@@ -11,6 +11,15 @@ const AppView = (props) => {
         "email": "bobbyshmurdabish123@yahoo.com",
         "gpa": 3.7
     }
+
+    const studentToRemove = {
+        "id": 4,
+        "firstName": "First",
+        "lastName": "Last",
+        "email": "bobbyshmurdabish123@yahoo.com",
+        "gpa": 3.7
+    }
+
     const campusToAdd = {
         "id": 1,
         "name": "Hunter College" 
@@ -28,7 +37,7 @@ const AppView = (props) => {
                 </button>
 
                 <button
-                    onClick={() => alert("You removed a student!")}
+                    onClick={() => removeStudent(studentToRemove.id}
                 > 
                 Remove Student 
                 </button>
