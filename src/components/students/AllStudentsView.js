@@ -4,7 +4,7 @@ import AddStudentForm from './AddStudentForm';
 
 export default function AllStudentsView(props) {
 
-    const { students, removeStudent, addStudent} = props;
+    const { students, removeStudent, addStudent } = props;
 
     return (
         <div>

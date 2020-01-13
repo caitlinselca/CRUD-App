@@ -2,12 +2,20 @@
 const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
+const GET_STUDENT = "GET_STUDENT";
 
 // ACTION CREATOR;
 const fetchStudents = (students) => {
     return {
         type: FETCH_STUDENTS,
         payload: students
+    }
+}
+
+const getStudent = (id) => {
+    return {
+        type: GET_STUDENT,
+        payload: id
     }
 }
 
@@ -54,6 +62,11 @@ export const fetchStudentsThunk = () => (dispatch) => {
     dispatch(fetchStudents(arrayOfStudentsFromAPI))
 }
 
+export const getStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = getStudent(id); 
+    dispatch(resolvedActionObject);
+}
+
 export const removeStudentThunk = (id) => (dispatch) => {
     let resolvedActionObject = removeStudent(id); 
     dispatch(resolvedActionObject);
@@ -73,6 +86,8 @@ export default (state = [], action) => {
             return state.filter(student => student.id !== action.payload);
         case ADD_STUDENT:
             return [...state, action.payload]
+        case GET_STUDENT:
+            return state.filter(student => student.id == action.payload);
         default:
             return state;
     }

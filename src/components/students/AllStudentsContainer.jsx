@@ -31,7 +31,11 @@ class AllStudentsContainer extends Component {
 
   render() {
     return (
-      <AllStudentsView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} campuses={this.props.campuses} removeCampus={this.removeCampus} addCampus={this.addCampus} />
+      <AllStudentsView 
+        students={this.props.students} 
+        removeStudent={this.removeStudent} 
+        addStudent={this.addStudent}  
+      />
     )
   }
 }
@@ -40,6 +44,7 @@ class AllStudentsContainer extends Component {
 // The keys in this returned object will be on your component's `props` object;
 // The values of these keys reflect the value of the piece of state in your Redux store;
 const mapState = (state) => {
+
   return {
     students: state.students,
   }
