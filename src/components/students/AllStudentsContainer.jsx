@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "../../store/utilities/students";
 import AllStudentsView from './AllStudentsView';
 
-class AppContainer extends Component {
+class AllStudentsContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -56,4 +56,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default connect(mapState, mapDispatch)(AppContainer);
+export default connect(mapState, mapDispatch)(AllStudentsContainer);

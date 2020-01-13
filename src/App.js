@@ -1,9 +1,8 @@
 import React from 'react';
 import "./App.css";
-import AllStudentsContainer from './components/students/AllStudentsContainer';
+import {AllStudentsContainer, SingleStudent} from './components/students/';
 import HomePage from './components/layout/HomePage'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import SingleStudent from './components/students/SingleStudent';
 
 function App() {
   return (
