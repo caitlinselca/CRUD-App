@@ -76,7 +76,7 @@ export default function EditStudentModal(props) {
                     autoFocus
                     margin="dense"
                     id="email"
-                    label="First Name"
+                    label="Email"
                     type="email"
                     fullWidth
                     onChange={handleChange}

@@ -16,6 +16,8 @@ export default function AllStudentsView(props) {
                     <CardView 
                         title={`${student.firstName} ${student.lastName}`}
                         id={student.id}
+                        email={student.email}
+                        gpa={student.gpa}
                         variant="student"
                         removeStudent={removeStudent}
                         editStudent={editStudent}

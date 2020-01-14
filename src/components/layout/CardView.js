@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 const CardView = (props) => {
     const classes = useStyles();
 
-    const {id, variant, title, removeStudent} = props;
+    const {id, variant, title, removeStudent, email, gpa} = props;
     let history = useHistory();
 
     return (
@@ -42,7 +42,7 @@ const CardView = (props) => {
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>
-                        R
+                        {title[0]}
                     </Avatar>
                 }
                 action={
@@ -57,7 +57,7 @@ const CardView = (props) => {
                     </IconButton>
                 }
                 title={title}
-                subheader="September 14, 2016"
+                subheader={email}
             />
             <CardMedia
                 className={classes.media}
@@ -71,8 +71,8 @@ const CardView = (props) => {
                     color="textSecondary" 
                     component="p"
                 >
-                    This impressive paella is a perfect party dish and a fun meal to cook together with your
-                    guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                    {title} is a student at some campus that has a gpa of {gpa}.
+                    <br></br>
                 </Typography>
 
             </CardContent>
