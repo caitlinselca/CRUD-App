@@ -1,10 +1,10 @@
 import React from 'react';
 import "./App.css";
 import {AllStudentsContainer, SingleStudent} from './components/students/';
+import {AllCampusesContainer, SingleCampus} from './components/campuses/';
 import HomePage from './components/layout/HomePage'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Navbar from './components/layout/Navbar'
-import AllCampusesContainer from './components/campuses/AllCampusesContainer';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/students" component={AllStudentsContainer}/>
           <Route exact path="/campuses" component={AllCampusesContainer}/>
           <Route exact path="/student/:id" component={SingleStudent}/>
-          <Route exact path="/campus/:id" component={SingleStudent}/>
+          <Route exact path="/campus/:id" component={SingleCampus}/>
       </Router>
   );
 }
