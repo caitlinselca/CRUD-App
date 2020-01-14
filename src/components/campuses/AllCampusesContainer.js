@@ -26,6 +26,17 @@ class AppContainer extends Component {
   }
 
   addCampus = (campus) => {
+
+    let campuses = this.props.campuses;
+    let length = campuses.length;
+
+    if(length > 0) {
+        let prevMaxId = campuses[length-1].id;
+        campus.id = prevMaxId+1;
+    } else {
+        campus.id = 1;
+    }
+    
     this.props.addCampus(campus);
   }
 
@@ -36,8 +47,9 @@ class AppContainer extends Component {
   render() {
     return (
         <AllCampusesView
-            campuses={this.props.campuses} 
+            campuses={this.props.campuses}
             removeCampus={this.removeCampus} 
+            addCampus={this.addCampus} 
             editCampus={this.editCampus}
         ></AllCampusesView>
     )
