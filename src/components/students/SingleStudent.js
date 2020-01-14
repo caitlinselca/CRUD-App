@@ -1,6 +1,14 @@
 import React, {Component}from 'react'
 import { connect } from "react-redux";
 import { getStudentThunk, fetchStudentsThunk } from "../../store/utilities/students";
+import AvatarPic from "../layout/Avatar.js"
+import Avatar from '@material-ui/core/Avatar';
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import EmailIcon from '@material-ui/icons/Email';
+import SchoolIcon from '@material-ui/icons/School';
 
 class SingleStudent extends Component {
 
@@ -22,7 +30,7 @@ class SingleStudent extends Component {
 
             if(this.props.students[i].id === parseInt(id)) {
                 myStudent = this.props.students[i];
-                console.log("PLEASE");
+                break;
             }
         }
 
@@ -33,10 +41,36 @@ class SingleStudent extends Component {
 
 
     render(){
+
         return (
             <div>
-                <h1>Single Student</h1>
-                <p> {this.state.currStudent.firstName}</p>
+                <h1 className="singlestudenttitle">{this.state.currStudent.firstName} {this.state.currStudent.lastName}</h1>
+                <AvatarPic></AvatarPic>
+                <ListItem className="info">
+                <ListItemAvatar className="avatar">
+                    <Avatar>
+                        <FingerprintIcon />
+                    </Avatar>
+                </ListItemAvatar>
+                    <ListItemText primary="ID" secondary={this.state.currStudent.id} />
+                </ListItem>
+                <ListItem className="info">
+                <ListItemAvatar className="avatar">
+                    <Avatar>
+                        <EmailIcon />
+                    </Avatar>
+                </ListItemAvatar>
+                    <ListItemText primary="Email" secondary={this.state.currStudent.email} />
+                </ListItem>
+                <ListItem className="info">
+                <ListItemAvatar className="avatar">
+                    <Avatar>
+                        <SchoolIcon />
+                    </Avatar>
+                </ListItemAvatar>
+                    <ListItemText primary="GPA" secondary={this.state.currStudent.gpa} />
+                </ListItem>
+
             </div>
         )
     }
