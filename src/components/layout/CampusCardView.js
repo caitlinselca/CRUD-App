@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditCampusForm from '../campuses/EditCampusForm';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 const CampusCardView = (props) => {
     const classes = useStyles();
 
-    const {id, name, variant, removeCampus} = props;
+    const {id, name, variant, removeCampus, editCampus} = props;
     let history = useHistory();
 
     return (
@@ -91,6 +92,12 @@ const CampusCardView = (props) => {
                 >
                     <DeleteIcon></DeleteIcon>
                 </IconButton>
+
+                <EditCampusForm
+                    id={id}
+                    name={name}
+                    editCampus={editCampus}
+                ></EditCampusForm>
             
             </CardActions>
         </Card>

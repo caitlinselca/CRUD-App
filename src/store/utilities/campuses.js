@@ -2,6 +2,7 @@
 const FETCH_CAMPUSES = "FETCH_CAMPUSES";
 const REMOVE_CAMPUS = "REMOVE_CAMPUS";
 const ADD_CAMPUS = "ADD_CAMPUS";
+const EDIT_CAMPUS = "EDIT_CAMPUS";
 
 // ACTION CREATOR;
 const fetchCampuses = (campuses) => {
@@ -21,6 +22,16 @@ const removeCampus = (campusid) => {
 const addCampus = (campus) => {
     return {
         type: ADD_CAMPUS,
+        payload: campus
+    }
+}
+
+const editCampus = (campus) => {
+
+    campus.id = parseInt(campus.id);
+
+    return {
+        type: EDIT_CAMPUS,
         payload: campus
     }
 }
@@ -51,6 +62,11 @@ export const addCampusThunk = (campus) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
+export const editCampusThunk = (campus) => (dispatch) => {
+    let resolvedActionObject = editCampus(campus); 
+    dispatch(resolvedActionObject);
+}
+
 // REDUCER FUNCTION;
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -60,6 +76,14 @@ export default (state = initialState, action) => {
             return state.filter(campus => campus.id !== action.payload);
         case ADD_CAMPUS:
             return [...state, action.payload]
+        case EDIT_CAMPUS:
+            return state.map(student => {
+                if(student.id === action.payload.id) {
+                    return action.payload
+                }
+
+                return student;
+            });
         default:
             return state;
     }
