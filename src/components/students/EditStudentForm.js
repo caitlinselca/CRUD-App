@@ -21,6 +21,11 @@ export default function EditStudentModal(props) {
         gpa: 0
     });
 
+    //This hook simulates a componentDidMount behavior
+    useEffect( () => {
+        //initialize state by making an api call here
+    }, [])
+
     const handleClickOpen = () => {
         setOpen(true);
     };
