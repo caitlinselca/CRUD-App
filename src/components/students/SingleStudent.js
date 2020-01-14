@@ -45,7 +45,7 @@ class SingleStudent extends Component {
         return (
             <div>
                 <h1 className="singlestudenttitle">{this.state.currStudent.firstName} {this.state.currStudent.lastName}</h1>
-                <AvatarPic></AvatarPic>
+                <div className="image"><AvatarPic></AvatarPic></div>
                 <ListItem className="info">
                 <ListItemAvatar className="avatar">
                     <Avatar>
