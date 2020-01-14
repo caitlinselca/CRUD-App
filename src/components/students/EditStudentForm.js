@@ -15,10 +15,10 @@ export default function EditStudentModal(props) {
 
     const [state, setState] = useState({
         id: props.id,
-        firstName: "",
-        lastName: "",
-        email: "",
-        gpa: 0
+        firstName: props.firstName,
+        lastName: props.lastName,
+        email: props.email,
+        gpa: props.gpa
     });
 
     //This hook simulates a componentDidMount behavior
@@ -46,8 +46,9 @@ export default function EditStudentModal(props) {
     return (
     <div>
         <IconButton 
-        aria-label="edit"
-        onClick={handleClickOpen}>
+            aria-label="edit"
+            onClick={handleClickOpen}
+        >
             <EditIcon />
         </IconButton>
 
@@ -62,6 +63,7 @@ export default function EditStudentModal(props) {
                     type="text"
                     fullWidth
                     onChange={handleChange}
+                    value={state.firstName}
                 />
                 <TextField
                     autoFocus
@@ -71,6 +73,7 @@ export default function EditStudentModal(props) {
                     type="text"
                     fullWidth
                     onChange={handleChange}
+                    value={state.lastName}
                 />
                 <TextField
                     autoFocus
@@ -80,15 +83,17 @@ export default function EditStudentModal(props) {
                     type="email"
                     fullWidth
                     onChange={handleChange}
+                    value={state.email}
                 />
                 <TextField
                     autoFocus
                     margin="dense"
                     id="gpa"
                     label="GPA"
-                    type="text"
+                    type="number"
                     fullWidth
                     onChange={handleChange}
+                    value={state.gpa}
                 />
             </DialogContent>
 

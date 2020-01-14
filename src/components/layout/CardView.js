@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 const CardView = (props) => {
     const classes = useStyles();
 
-    const {id, variant, title, removeStudent, email, gpa} = props;
+    const {id, variant, firstName, lastName, removeStudent, email, gpa} = props;
     let history = useHistory();
 
     return (
@@ -42,7 +42,7 @@ const CardView = (props) => {
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe" className={classes.avatar}>
-                        {title[0]}
+                        {firstName[0]}
                     </Avatar>
                 }
                 action={
@@ -56,13 +56,12 @@ const CardView = (props) => {
      
                     </IconButton>
                 }
-                title={title}
+                title={`${firstName} ${lastName}`}
                 subheader={email}
             />
             <CardMedia
                 className={classes.media}
                 image={require('./img1.jpg')}
-                title="Paella dish"
             />
             <CardContent>
 
@@ -71,7 +70,7 @@ const CardView = (props) => {
                     color="textSecondary" 
                     component="p"
                 >
-                    {title} is a student at some campus that has a gpa of {gpa}.
+                    {`${firstName} ${lastName}`} is a student at some campus that has a gpa of {gpa}.
                     <br></br>
                 </Typography>
 
@@ -81,6 +80,10 @@ const CardView = (props) => {
 
                 <EditStudentForm
                     id={id}
+                    firstName={firstName}
+                    lastName={lastName}
+                    email={email}
+                    gpa={gpa}
                     editStudent={props.editStudent}
                 ></EditStudentForm>
 

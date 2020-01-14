@@ -14,7 +14,8 @@ export default function AllStudentsView(props) {
             {students.map(student => {
                 return (
                     <CardView 
-                        title={`${student.firstName} ${student.lastName}`}
+                        firstName={student.firstName}
+                        lastName={student.lastName}
                         id={student.id}
                         email={student.email}
                         gpa={student.gpa}
