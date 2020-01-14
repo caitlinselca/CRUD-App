@@ -21,8 +21,8 @@ class AppContainer extends Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  removeCampus = (campusid) => {
-    this.props.removeCampus(campusid);
+  removeCampus = (id) => {
+    this.props.removeCampus(id);
   }
 
   addCampus = (campus) => {

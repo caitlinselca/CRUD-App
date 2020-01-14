@@ -1,8 +1,9 @@
 import SingleCampus from "./SingleCampus";
 import AllCampusesContainer from "./AllCampusesContainer";
-// import EditCampusForm from "./EditCampusForm";
-import AllCampusesView from "./AllCampusesView";
+import AddCampusForm from "./AddCampusForm";
+import EditCampusForm from "./EditCampusForm";
+import AllCampuseView from "./AllCampusesView";
 
 export {
-    SingleCampus, AllCampusesContainer, AllCampusesView
+    SingleCampus, AllCampusesContainer, AddCampusForm, EditCampusForm, AllCampusesView
 };

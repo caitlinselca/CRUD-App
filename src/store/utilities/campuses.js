@@ -13,6 +13,7 @@ const fetchCampuses = (campuses) => {
     }
 }
 
+
 const getCampus = (id) => {
     return {
         type: GET_CAMPUS,
@@ -23,7 +24,7 @@ const getCampus = (id) => {
 const removeCampus = (campusid) => {
     return {
         type: REMOVE_CAMPUS,
-        payload: campusid
+        payload: id
     }
 }
 
@@ -46,12 +47,12 @@ const editCampus = (campus) => {
 
 let initialState = [
     {
+    "name": "Baruch",
     "id": 2,
-    "name": "Baruch"
     },
     {
-    "id": 3,
-    "name": "City College"
+    "name": "City College",
+    "id": 3
     },
 ]
 
@@ -59,7 +60,6 @@ let initialState = [
 export const fetchCampusesThunk = () => (dispatch) => {
     dispatch(fetchCampuses(initialState))
 }
-
 
 export const getCampusThunk = (id) => (dispatch) => {
     let resolvedActionObject = getCampus(id); 
