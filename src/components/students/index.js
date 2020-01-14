@@ -6,4 +6,3 @@ import AllStudentsView from "./AllStudentsView";
 export {
     SingleStudent, AllStudentsContainer, EditStudentForm, AllStudentsView
 };
-

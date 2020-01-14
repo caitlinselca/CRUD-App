@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function FormDialog(props) {
+export default function AddStudentForm(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -44,12 +44,42 @@ export default function FormDialog(props) {
         <DialogContent>
             <TextField
                 required
-                label="Campus Name"
+                label="First Name"
                 fullWidth
                 margin="dense"
                 autoFocus
-                id="name"
+                id="firstName"
                 type="text"
+                onChange={handleChange}
+            />
+            <TextField
+                required
+                label="last Name"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="lastName"
+                type="text"
+                onChange={handleChange}
+            />
+            <TextField
+                required
+                label="Email"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="email"
+                type="email"
+                onChange={handleChange}
+            />
+            <TextField
+                required
+                label="GPA"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="gpa"
+                type="number"
                 onChange={handleChange}
             />
         </DialogContent>
