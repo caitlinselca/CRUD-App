@@ -9,7 +9,7 @@ export default function AllCampusesView(props) {
     return (
         <div>
             <p></p>
-            <AddCampusForm addCampus={addCampus}/>
+            <AddCampusForm addCampus={addCampus} /> 
             {campuses.map(campus => {
                 return (
                     <CampusCardView 
