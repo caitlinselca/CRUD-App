@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 // Additional Redux store imports;
 import { connect } from "react-redux";
 import { fetchCampusesThunk, removeCampusThunk, addCampusThunk } from "../../store/utilities/campuses";
-import CampusCardView from '../layout/CampusCardView';
 import AllCampusesView from './AllCampusesView';
 
 class AppContainer extends Component {
@@ -27,14 +26,26 @@ class AppContainer extends Component {
   }
 
   addCampus = (campus) => {
+
+    let campuses = this.props.campuses;
+    let length = campuses.length;
+
+    if(length > 0) {
+        let prevMaxId = campuses[length-1].id;
+        campus.id = prevMaxId+1;
+    } else {
+        campus.id = 1;
+    }
+    
     this.props.addCampus(campus);
   }
 
   render() {
     return (
         <AllCampusesView
-            campuses={this.props.campuses} 
+            campuses={this.props.campuses}
             removeCampus={this.removeCampus} 
+            addCampus={this.addCampus} 
         ></AllCampusesView>
     )
   }
