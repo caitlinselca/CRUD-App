@@ -4,7 +4,7 @@ import AddStudentForm from './AddStudentForm';
 
 export default function AllStudentsView(props) {
 
-    const { students, removeStudent, addStudent } = props;
+    const { students, removeStudent, addStudent, editStudent } = props;
 
     return (
         <div>
@@ -16,8 +16,11 @@ export default function AllStudentsView(props) {
                     <CardView 
                         title={`${student.firstName} ${student.lastName}`}
                         id={student.id}
+                        email={student.email}
+                        gpa={student.gpa}
                         variant="student"
                         removeStudent={removeStudent}
+                        editStudent={editStudent}
                     ></CardView>
                 );
             })}
