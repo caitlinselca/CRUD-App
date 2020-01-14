@@ -3,7 +3,7 @@ import CampusCardView from '../layout/CampusCardView';
 
 export default function AllCampusesView(props) {
 
-    const { campuses, removeCampus, addCampus } = props;
+    const { campuses, removeCampus, addCampus, editCampus } = props;
 
     return (
         <div>
@@ -15,6 +15,7 @@ export default function AllCampusesView(props) {
                         id={campus.id}
                         variant="campus"
                         removeCampus={removeCampus}
+                        editCampus={editCampus}
                     ></CampusCardView>
                 );
             })}
