@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 // Additional Redux store imports;
 import { connect } from "react-redux";
-import { fetchCampusesThunk, removeCampusThunk, addCampusThunk } from "../../store/utilities/campuses";
-import CampusCardView from '../layout/CampusCardView';
+import { fetchCampusesThunk, removeCampusThunk, addCampusThunk, editCampusThunk } from "../../store/utilities/campuses";
 import AllCampusesView from './AllCampusesView';
 
 class AppContainer extends Component {
@@ -30,11 +29,16 @@ class AppContainer extends Component {
     this.props.addCampus(campus);
   }
 
+  editCampus = (campus) => {
+    this.props.editCampus(campus);
+  }
+
   render() {
     return (
         <AllCampusesView
             campuses={this.props.campuses} 
             removeCampus={this.removeCampus} 
+            editCampus={this.editCampus}
         ></AllCampusesView>
     )
   }
@@ -55,8 +59,9 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllCampuses: () => dispatch(fetchCampusesThunk()),
-    removeCampus: (id) => dispatch(removeCampusThunk(id)),
-    addCampus: (campus) => dispatch(addCampusThunk(campus))
+    removeCampus: (campusid) => dispatch(removeCampusThunk(campusid)),
+    addCampus: (campus) => dispatch(addCampusThunk(campus)),
+    editCampus: (campus) => dispatch(editCampusThunk(campus))
   }
 }
 
