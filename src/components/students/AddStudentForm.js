@@ -44,42 +44,12 @@ export default function FormDialog(props) {
         <DialogContent>
             <TextField
                 required
-                label="First Name"
+                label="Campus Name"
                 fullWidth
                 margin="dense"
                 autoFocus
-                id="firstName"
+                id="name"
                 type="text"
-                onChange={handleChange}
-            />
-            <TextField
-                required
-                label="last Name"
-                fullWidth
-                margin="dense"
-                autoFocus
-                id="lastName"
-                type="text"
-                onChange={handleChange}
-            />
-            <TextField
-                required
-                label="Email"
-                fullWidth
-                margin="dense"
-                autoFocus
-                id="email"
-                type="email"
-                onChange={handleChange}
-            />
-            <TextField
-                required
-                label="GPA"
-                fullWidth
-                margin="dense"
-                autoFocus
-                id="gpa"
-                type="number"
                 onChange={handleChange}
             />
         </DialogContent>
@@ -91,7 +61,7 @@ export default function FormDialog(props) {
             align-items="center"
             onClick={handleSubmit}
           >
-            Add Student
+            Add Campus
           </Button>
         </DialogActions>
       </Dialog>

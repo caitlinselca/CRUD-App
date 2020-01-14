@@ -22,8 +22,8 @@ class AppContainer extends Component {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  removeCampus = (campusid) => {
-    this.props.removeCampus(campusid);
+  removeCampus = (id) => {
+    this.props.removeCampus(id);
   }
 
   addCampus = (campus) => {
@@ -55,7 +55,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllCampuses: () => dispatch(fetchCampusesThunk()),
-    removeCampus: (campusid) => dispatch(removeCampusThunk(campusid)),
+    removeCampus: (id) => dispatch(removeCampusThunk(id)),
     addCampus: (campus) => dispatch(addCampusThunk(campus))
   }
 }

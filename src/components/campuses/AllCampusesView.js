@@ -1,5 +1,6 @@
 import React from 'react'
 import CampusCardView from '../layout/CampusCardView';
+import AddCampusForm from './AddCampusForm';
 
 export default function AllCampusesView(props) {
 
@@ -8,6 +9,7 @@ export default function AllCampusesView(props) {
     return (
         <div>
             <p></p>
+            <AddCampusForm addCampus={addCampus}/>
             {campuses.map(campus => {
                 return (
                     <CampusCardView 
