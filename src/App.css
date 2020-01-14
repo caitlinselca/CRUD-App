@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.singlestudenttitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font: 45px copperplate;
+  color: rgb(80, 71, 71);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(224, 212, 253);
+  box-shadow: 5px 1px 3px 0 black;
+	box-sizing: border-box;
+}
+
+.avatar {
+  align-items: center;
+  justify-content: center;
+  margin-left: 43%;
+}
