@@ -1,6 +1,6 @@
 import React from 'react'
 import CardView from "../layout/CardView";
-import AddStudentForm from './AddStudentForm';
+import FormDialog from './FormDialog';
 
 export default function AllStudentsView(props) {
 
@@ -8,9 +8,9 @@ export default function AllStudentsView(props) {
 
     return (
         <div>
-
-            <AddStudentForm addStudent={addStudent}></AddStudentForm>
-
+            <p></p>
+            <FormDialog addStudent={addStudent}>
+            </FormDialog>
             {students.map(student => {
                 return (
                     <CardView 
