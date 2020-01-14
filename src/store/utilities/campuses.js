@@ -21,7 +21,7 @@ const getCampus = (id) => {
     }
 }
 
-const removeCampus = (campusid) => {
+const removeCampus = (id) => {
     return {
         type: REMOVE_CAMPUS,
         payload: id
