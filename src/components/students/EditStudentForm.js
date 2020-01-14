@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -54,6 +54,33 @@ export default function EditStudentModal(props) {
                     margin="dense"
                     id="firstName"
                     label="First Name"
+                    type="text"
+                    fullWidth
+                    onChange={handleChange}
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="lastName"
+                    label="Last Name"
+                    type="text"
+                    fullWidth
+                    onChange={handleChange}
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="email"
+                    label="First Name"
+                    type="email"
+                    fullWidth
+                    onChange={handleChange}
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="gpa"
+                    label="GPA"
                     type="text"
                     fullWidth
                     onChange={handleChange}
