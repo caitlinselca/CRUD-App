@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
-// Import view;
-import AppView from "../../../AppView";
-
 // Additional Redux store imports;
 import { connect } from "react-redux";
-import { fetchCampusesThunk, removeCampusThunk, addCampusThunk } from "./store/utilities/campuses";
+import { fetchCampusesThunk, removeCampusThunk, addCampusThunk } from "../../store/utilities/campuses";
+import CampusCardView from '../layout/CampusCardView';
+import AllCampusesView from './AllCampusesView';
 
 class AppContainer extends Component {
   constructor() {
@@ -33,7 +32,10 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <AppView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} campuses={this.props.campuses} removeCampus={this.removeCampus} addCampus={this.addCampus} />
+        <AllCampusesView
+            campuses={this.props.campuses} 
+            removeCampus={this.removeCampus} 
+        ></AllCampusesView>
     )
   }
 }
