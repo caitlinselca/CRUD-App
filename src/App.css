@@ -61,3 +61,8 @@
   justify-content: center;
   margin-left: 43%;
 }
+
+.image {
+  display: grid;
+  place-items: center;
+}
