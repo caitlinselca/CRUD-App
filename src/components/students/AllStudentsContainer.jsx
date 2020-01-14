@@ -29,9 +29,13 @@ class AllStudentsContainer extends Component {
 
     let students = this.props.students;
     let length = students.length;
-    let prevMaxId = students[length-1].id;
 
-    student.id = prevMaxId+1;
+    if(length > 0) {
+        let prevMaxId = students[length-1].id;
+        student.id = prevMaxId+1;
+    } else {
+        student.id = 1;
+    }
     
     this.props.addStudent(student);
   }
