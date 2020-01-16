@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // ACTION TYPES;
 const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
@@ -50,7 +52,9 @@ const editStudent = (student) => {
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
 
-    dispatch(fetchStudents(initialState))
+    axios.get("/api/students")
+    .then(res => dispatch(fetchStudents(res.data)));
+    
 }
 
 export const getStudentThunk = (id) => (dispatch) => {
@@ -59,44 +63,33 @@ export const getStudentThunk = (id) => (dispatch) => {
 }
 
 export const editStudentThunk = (student) => (dispatch) => {
+
+    axios.put("/api/students", student)
+    .then(res => console.log(res.data))
+
     let resolvedActionObject = editStudent(student); 
     dispatch(resolvedActionObject);
 }
 
 export const removeStudentThunk = (id) => (dispatch) => {
+
+    axios.delete("api/students/" + id)
+    .then(res => console.log(res.data))
+
     let resolvedActionObject = removeStudent(id); 
     dispatch(resolvedActionObject);
 }
 
 export const addStudentThunk = (student) => (dispatch) => {
+    axios.post("api/students", student)
+    .then(res => console.log(res.data))
+
     let resolvedActionObject = addStudent(student); 
     dispatch(resolvedActionObject);
 }
 
 
-let initialState= [
-        {
-        "id": 1,
-        "firstName": "Caitlin",
-        "lastName": "Selca",
-        "email": "caitlinselca@gmail.com",
-        "gpa": 3.5
-        },
-        {
-        "id": 2,
-        "firstName": "Camryn",
-        "lastName": "Buonamassa",
-        "email": "someemailgoeshere@yahoo.com",
-        "gpa": 3.8
-        },
-        {
-        "id": 3,
-        "firstName": "Naveed",
-        "lastName": "Naqi",
-        "email": "youremail@gmail.com",
-        "gpa": 4.0
-        }
-    ]
+let initialState= []
 
 // REDUCER FUNCTION;
 export default (state = initialState, action) => {

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
+import CardMedia from '@material-ui/core/CardMedia'; 
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
@@ -12,6 +12,7 @@ import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useHistory } from "react-router-dom";
 import DeleteIcon from '@material-ui/icons/Delete';
 import { EditStudentForm } from '../students';
+import axios from 'axios';
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,8 +34,19 @@ const useStyles = makeStyles(theme => ({
 const CardView = (props) => {
     const classes = useStyles();
 
-    const {id, variant, firstName, lastName, removeStudent, email, gpa} = props;
+    const {id, variant, firstName, lastName, removeStudent, email, gpa } = props;
     let history = useHistory();
+
+    const [campus, setCampus] = useState("");
+    
+
+    useEffect(() => {
+        axios.get(`/api/students/${id}/campus`)
+        .then(res => {
+            setCampus(res.data.name)
+        })
+        .catch(err => console.log(err));
+    }, []);
 
     return (
     
@@ -70,7 +82,7 @@ const CardView = (props) => {
                     color="textSecondary" 
                     component="p"
                 >
-                    {`${firstName} ${lastName}`} is a student at some campus that has a gpa of {gpa}.
+                    {`${firstName} ${lastName}`} is a student at {campus} that has a gpa of {gpa}.
                     <br></br>
                 </Typography>
 
