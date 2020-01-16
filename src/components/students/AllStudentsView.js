@@ -19,6 +19,7 @@ export default function AllStudentsView(props) {
                         id={student.id}
                         email={student.email}
                         gpa={student.gpa}
+                        campus={student.campusname}
                         variant="student"
                         removeStudent={removeStudent}
                         editStudent={editStudent}

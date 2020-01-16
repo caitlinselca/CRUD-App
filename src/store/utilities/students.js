@@ -80,21 +80,24 @@ let initialState= [
         "firstName": "Caitlin",
         "lastName": "Selca",
         "email": "caitlinselca@gmail.com",
-        "gpa": 3.5
+        "gpa": 3.5,
+        "campusname": "Hunter College"
         },
         {
         "id": 2,
         "firstName": "Camryn",
         "lastName": "Buonamassa",
         "email": "someemailgoeshere@yahoo.com",
-        "gpa": 3.8
+        "gpa": 3.8,
+        "campusname": "Hunter College"
         },
         {
         "id": 3,
         "firstName": "Naveed",
         "lastName": "Naqi",
         "email": "youremail@gmail.com",
-        "gpa": 4.0
+        "gpa": 4.0,
+        "campusname": "Hunter College"
         }
     ]
 

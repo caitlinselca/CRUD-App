@@ -9,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import EmailIcon from '@material-ui/icons/Email';
 import SchoolIcon from '@material-ui/icons/School';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 
 class SingleStudent extends Component {
 
@@ -69,6 +70,14 @@ class SingleStudent extends Component {
                     </Avatar>
                 </ListItemAvatar>
                     <ListItemText primary="GPA" secondary={this.state.currStudent.gpa} />
+                </ListItem>
+                <ListItem className="info">
+                <ListItemAvatar className="avatar">
+                    <Avatar>
+                        <AccountBalanceIcon />
+                    </Avatar>
+                </ListItemAvatar>
+                    <ListItemText primary="Campus" secondary={this.state.currStudent.campusname} />
                 </ListItem>
 
             </div>

@@ -54,7 +54,7 @@ export default function AddStudentForm(props) {
             />
             <TextField
                 required
-                label="last Name"
+                label="Last Name"
                 fullWidth
                 margin="dense"
                 autoFocus
@@ -82,6 +82,16 @@ export default function AddStudentForm(props) {
                 type="number"
                 onChange={handleChange}
             />
+            <TextField
+                required
+                label="Campus"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="campusid"
+                type="text"
+                onChange={handleChange}
+            />
         </DialogContent>
         <DialogActions>
           <Button 
@@ -91,7 +101,7 @@ export default function AddStudentForm(props) {
             align-items="center"
             onClick={handleSubmit}
           >
-            Add Campus
+            Add Student
           </Button>
         </DialogActions>
       </Dialog>

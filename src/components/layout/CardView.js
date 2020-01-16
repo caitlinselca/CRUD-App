@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 const CardView = (props) => {
     const classes = useStyles();
 
-    const {id, variant, firstName, lastName, removeStudent, email, gpa} = props;
+    const {id, variant, firstName, lastName, removeStudent, email, gpa, campus} = props;
     let history = useHistory();
 
     return (
@@ -70,7 +70,7 @@ const CardView = (props) => {
                     color="textSecondary" 
                     component="p"
                 >
-                    {`${firstName} ${lastName}`} is a student at some campus that has a gpa of {gpa}.
+                    {`${firstName} ${lastName}`} is a student at {campus} that has a gpa of {gpa}.
                     <br></br>
                 </Typography>
 
