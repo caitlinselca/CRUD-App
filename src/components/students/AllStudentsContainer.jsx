@@ -25,18 +25,7 @@ class AllStudentsContainer extends Component {
     this.props.removeStudent(id);
   }
 
-  addStudent = (student) => {
-
-    let students = this.props.students;
-    let length = students.length;
-
-    if(length > 0) {
-        let prevMaxId = students[length-1].id;
-        student.id = prevMaxId+1;
-    } else {
-        student.id = 1;
-    }
-    
+  addStudent = (student) => {    
     this.props.addStudent(student);
   }
 
@@ -47,7 +36,7 @@ class AllStudentsContainer extends Component {
   render() {
     return (
       <AllStudentsView 
-        students={this.props.students} 
+        students={this.props.students}
         removeStudent={this.removeStudent} 
         addStudent={this.addStudent} 
         editStudent={this.editStudent} 
