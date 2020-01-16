@@ -5,9 +5,15 @@ import AddCampusForm from './AddCampusForm';
 export default function AllCampusesView(props) {
 
     const { campuses, removeCampus, addCampus, editCampus } = props;
-    const determineDisplay = (students) =>{
+    const determineDisplay = (campuses) =>{
         if(campuses.length === 0){
-            return (<h2 align="center"> No campuses </h2>);
+            return (
+                <div>
+                    <p></p>
+                    <AddCampusForm addCampus={addCampus} /> 
+                    <h2 align="center"> No campuses </h2>
+                </div>
+            );
         }
         else{
             return(

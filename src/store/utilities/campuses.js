@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // ACTION TYPES;
 const FETCH_CAMPUSES = "FETCH_CAMPUSES";
 const REMOVE_CAMPUS = "REMOVE_CAMPUS";
@@ -45,20 +47,12 @@ const editCampus = (campus) => {
     }
 }
 
-let initialState = [
-    {
-    "name": "Baruch",
-    "id": 2,
-    },
-    {
-    "name": "City College",
-    "id": 3
-    },
-]
+let initialState = []
 
 // THUNK CREATOR;
 export const fetchCampusesThunk = () => (dispatch) => {
-    dispatch(fetchCampuses(initialState))
+    axios.get("/api/campuses")
+    .then(res => dispatch(fetchCampuses(res.data)));
 }
 
 export const getCampusThunk = (id) => (dispatch) => {
@@ -67,11 +61,19 @@ export const getCampusThunk = (id) => (dispatch) => {
 }
 
 export const removeCampusThunk = (campusid) => (dispatch) => {
+
+    axios.delete("api/campuses/" + campusid)
+    .then(res => console.log(res.data))
+
     let resolvedActionObject = removeCampus(campusid); 
     dispatch(resolvedActionObject);
 }
 
 export const addCampusThunk = (campus) => (dispatch) => {
+
+    axios.post("api/campuses", campus)
+    .then(res => console.log(res.data))
+
     let resolvedActionObject = addCampus(campus); 
     dispatch(resolvedActionObject);
 }

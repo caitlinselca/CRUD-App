@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 const CardView = (props) => {
     const classes = useStyles();
 
-    const {id, variant, firstName, lastName, removeStudent, email, gpa } = props;
+    const {id, variant, firstName, lastName, removeStudent, email, gpa, imageUrl } = props;
     let history = useHistory();
 
     const [campus, setCampus] = useState("");
@@ -73,7 +73,7 @@ const CardView = (props) => {
             />
             <CardMedia
                 className={classes.media}
-                image={require('./img1.jpg')}
+                image={imageUrl}
             />
             <CardContent>
 

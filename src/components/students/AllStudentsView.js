@@ -9,7 +9,14 @@ export default function AllStudentsView(props) {
 
     const determineDisplay = (students) =>{
         if(students.length === 0){
-            return (<h2 align="center"> No students </h2>);
+            return (
+                <div>
+                    <p></p>
+                    <AddStudentForm addStudent={addStudent}>
+                    </AddStudentForm>
+                    <h2 align="center"> No students </h2>
+                </div>
+            );
         }
         else{
             return(
@@ -23,6 +30,8 @@ export default function AllStudentsView(props) {
                                 firstName={student.firstName}
                                 lastName={student.lastName}
                                 id={student.id}
+                                year={student.year}
+                                imageUrl={student.imageUrl}
                                 email={student.email}
                                 gpa={student.gpa}
                                 variant="student"
@@ -35,6 +44,7 @@ export default function AllStudentsView(props) {
             )
         }
     }
+
     let display = determineDisplay(students);
     return (
     <div> 
