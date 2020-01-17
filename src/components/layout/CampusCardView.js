@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 const CampusCardView = (props) => {
     const classes = useStyles();
 
-    const {id, name, variant, removeCampus, editCampus} = props;
+    const {id, name, variant, removeCampus, editCampus, location, email, imageUrl} = props;
     let history = useHistory();
 
     return (
@@ -60,7 +60,7 @@ const CampusCardView = (props) => {
             />
             <CardMedia
                 className={classes.media}
-                image={require('./img1.jpg')}
+                image={imageUrl}
             />
             <CardContent>
 
@@ -69,22 +69,13 @@ const CampusCardView = (props) => {
                     color="textSecondary" 
                     component="p"
                 >
-                    This is {name}. It is located in the heart of New York City.
+                    This is {name}. It is located at {location}. Contact them at {email}
                     <br></br>
                 </Typography>
 
             </CardContent>
 
             <CardActions disableSpacing>
-
-                {/* <EditStudentForm
-                    id={id}
-                    firstName={firstName}
-                    lastName={lastName}
-                    email={email}
-                    gpa={gpa}
-                    editStudent={props.editStudent}
-                ></EditStudentForm> */}
 
                 <IconButton 
                     aria-label="add to favorites"
@@ -97,6 +88,9 @@ const CampusCardView = (props) => {
                     id={id}
                     name={name}
                     editCampus={editCampus}
+                    location={location}
+                    email={email}
+                    imageUrl={imageUrl}
                 ></EditCampusForm>
             
             </CardActions>

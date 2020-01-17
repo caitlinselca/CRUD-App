@@ -25,6 +25,9 @@ export default function AllCampusesView(props) {
                             <CampusCardView 
                                 name={campus.name}
                                 id={campus.id}
+                                location={campus.location}
+                                imageUrl={campus.imageUrl}
+                                email={campus.email}
                                 variant="campus"
                                 removeCampus={removeCampus}
                                 editCampus={editCampus}

@@ -16,6 +16,9 @@ export default function EditCampusForm(props) {
     const [state, setState] = useState({
         id: props.id,
         name: props.name,
+        email: props.email,
+        location: props.location,
+        imageUrl: props.imageUrl
     });
 
     //This hook simulates a componentDidMount behavior
@@ -50,18 +53,52 @@ export default function EditCampusForm(props) {
         </IconButton>
 
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title">Edit Student</DialogTitle>
+            <DialogTitle id="form-dialog-title">Edit Campus</DialogTitle>
             <DialogContent>
-                <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Campus Name"
-                    type="text"
-                    fullWidth
-                    onChange={handleChange}
-                    value={state.name}
-                />
+            <TextField
+                required
+                label="Campus Name"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="name"
+                type="text"
+                onChange={handleChange}
+                value={state.name}
+            />
+            <TextField
+                required
+                label="Email"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="email"
+                type="text"
+                onChange={handleChange}
+                value={state.email}
+            />
+            <TextField
+                required
+                label="Location"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="location"
+                type="text"
+                onChange={handleChange}
+                value={state.location}
+            />
+            <TextField
+                required
+                label="Image Url"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="imageUrl"
+                type="text"
+                onChange={handleChange}
+                value={state.imageUrl}
+            />
             </DialogContent>
 
             <DialogActions>

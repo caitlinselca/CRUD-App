@@ -19,7 +19,9 @@ export default function AddCampusForm(props) {
 
   const [state, setState] = useState({
         name: "",
-        id: 0
+        email: "",
+        location: "",
+        imageUrl: ""
     });
 
     const handleSubmit = () => {
@@ -50,6 +52,37 @@ export default function AddCampusForm(props) {
                 type="text"
                 onChange={handleChange}
             />
+            <TextField
+                required
+                label="Email"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="email"
+                type="text"
+                onChange={handleChange}
+            />
+            <TextField
+                required
+                label="Location"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="location"
+                type="text"
+                onChange={handleChange}
+            />
+            <TextField
+                required
+                label="Image Url"
+                fullWidth
+                margin="dense"
+                autoFocus
+                id="imageUrl"
+                type="text"
+                onChange={handleChange}
+            />
+
         </DialogContent>
         <DialogActions>
           <Button 

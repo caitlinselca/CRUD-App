@@ -79,6 +79,10 @@ export const addCampusThunk = (campus) => (dispatch) => {
 }
 
 export const editCampusThunk = (campus) => (dispatch) => {
+
+    axios.put("api/campuses", campus)
+    .then(res => console.log(res.data))
+    
     let resolvedActionObject = editCampus(campus); 
     dispatch(resolvedActionObject);
 }

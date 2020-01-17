@@ -20,23 +20,12 @@ class AppContainer extends Component {
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
-
+4
   removeCampus = (id) => {
     this.props.removeCampus(id);
   }
 
   addCampus = (campus) => {
-
-    let campuses = this.props.campuses;
-    let length = campuses.length;
-
-    if(length > 0) {
-        let prevMaxId = campuses[length-1].id;
-        campus.id = prevMaxId+1;
-    } else {
-        campus.id = 1;
-    }
-    
     this.props.addCampus(campus);
   }
 
